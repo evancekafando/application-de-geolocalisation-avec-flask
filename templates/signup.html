@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <main class="container signup-section">
+    <div class="section-content">
+      <h2>Créer un compte</h2>
+
+      <form method="POST" action="/signup">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+          {{ form.prenom.label }}
+
+          {% if form.prenom.errors %}
+            {% for error in form.prenom.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.prenom }}
+        </div>
+
+        <div class="form-group">
+          {{ form.nom.label }}
+
+          {% if form.nom.errors %}
+            {% for error in form.nom.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.nom }}
+        </div>
+
+        <div class="form-group">
+          {{ form.email.label }}
+
+          {% if form.email.errors %}
+            {% for error in form.email.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.email }}
+        </div>
+
+        <div class="form-group">
+          {{ form.mot_de_passe.label }}
+
+          {% if form.mot_de_passe.errors %}
+            {% for error in form.mot_de_passe.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.mot_de_passe }}
+        </div>
+
+        {{ form.submit(class="btn-primary") }}
+      </form>
+    </div>
+  </main>
+{% endblock %}
